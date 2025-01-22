@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Slime Slayer"
-run/main_scene="res://Scenes/root_scene.tscn"
+run/main_scene="res://Scenes/root_scene_linux.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
