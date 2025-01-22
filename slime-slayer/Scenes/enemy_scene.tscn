@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://2jbrmsxfojx6"]
+[gd_scene load_steps=3 format=3 uid="uid://bkt0v2v2afvxc"]
 
 [ext_resource type="Script" path="res://Scripts/enemy_collision.gd" id="1_loewu"]
 
