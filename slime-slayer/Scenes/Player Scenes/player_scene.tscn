@@ -5,9 +5,18 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hd735"]
 size = Vector2(128, 128)
 
-[node name="Player" type="Area2D"]
+[node name="Node2D" type="Node2D"]
 
+<<<<<<< HEAD:slime-slayer/Scenes/Player Scenes/player_scene.tscn
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+=======
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("1_h41yx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+>>>>>>> 4eb9dd8b016a8191a56c08f672039bd650972b95:slime-slayer/Scenes/player_scene.tscn
 shape = SubResource("RectangleShape2D_hd735")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
