@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-[gd_scene load_steps=6 format=3 uid="uid://bh7rebnwoa1b4"]
+[gd_scene load_steps=6 format=3 uid="uid://cj3qaeck1sbq2"]
 
 [ext_resource type="PackedScene" uid="uid://blnfphlrjc7qm" path="res://Scenes/Player Scenes/player_scene.tscn" id="1_c0w1u"]
 [ext_resource type="Script" path="res://Scripts/main_script.gd" id="1_irq5f"]
@@ -18,9 +17,3 @@ sword_swipe_scene = ExtResource("4_5xul6")
 
 [node name="Enemy" parent="." instance=ExtResource("3_7meh6")]
 position = Vector2(433, 293)
-script = null
-=======
-[gd_scene format=3 uid="uid://bh7rebnwoa1b4"]
-
-[node name="Node2D" type="Node2D"]
->>>>>>> 4eb9dd8b016a8191a56c08f672039bd650972b95
