@@ -33,17 +33,10 @@ func _process(delta: float) -> void:
 			var sword_swipe = sword_swipe_scene.instantiate()
 			sword_swipe.position = (direction * ATTACK_DISTANCE) * 2
 			if (direction == Vector2.UP):
+				sword_swipe.rotation_degrees = -90
 				print("ATTACK UP")
-				#sword_swipe.position.y = direction.y * (position.y - ATTACK_DISTANCE) 
-			if (direction == Vector2.DOWN):
-				print("ATTACK DOWN")
-				#sword_swipe.position.y = direction.y * (position.y + ATTACK_DISTANCE) 
-			if (direction == Vector2.LEFT):
-				print("ATTACK LEFT")
-				#sword_swipe.position.x = direction.x * (position.x - ATTACK_DISTANCE) 
-			if (direction == Vector2.RIGHT):
-				print("ATTACK RIGHT")
-				#sword_swipe.position.x = direction.x * (position.x + ATTACK_DISTANCE)
+			elif (direction == Vector2.DOWN):
+				sword_swipe.rotation_degrees = 90
 			print(direction)
 			print("sword: ", sword_swipe.position.x)
 			print("player: ", position.x)
