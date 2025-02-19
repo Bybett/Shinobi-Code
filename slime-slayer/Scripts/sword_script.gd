@@ -1,16 +1,16 @@
-extends Node
+extends Area2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-func _on_body_entered(body):
-	if (body.health):
-		body.health -= 1
-	else:
-		print("No Health Value")
+	self.monitoring
+	self.monitorable
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	await get_tree().create_timer(0.5)
+	await get_tree().create_timer(0.1).timeout
 	self.queue_free()
+
+func _on_area_entered(area):
+	if (area.name.begins_with("Enemy")):
+		area.queue_free()
+		Globals.score += 10

@@ -34,12 +34,8 @@ func _process(delta: float) -> void:
 			sword_swipe.position = (direction * ATTACK_DISTANCE) * 2
 			if (direction == Vector2.UP):
 				sword_swipe.rotation_degrees = -90
-				print("ATTACK UP")
 			elif (direction == Vector2.DOWN):
 				sword_swipe.rotation_degrees = 90
-			print(direction)
-			print("sword: ", sword_swipe.position.x)
-			print("player: ", position.x)
 			add_child(sword_swipe)
 		else:
 			print("No sword_swipe_scene")
