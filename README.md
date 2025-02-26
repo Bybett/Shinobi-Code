@@ -21,11 +21,6 @@ A game about a slayer slaying slimes
 Lapwell/Byron.c
 
 ## Version History
-* 0.2
-    * Grid rendering
-    * Calc G
-    * Calc H
-    * Started A*
 * 0.1
     * Initial Release
 
