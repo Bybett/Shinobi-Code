@@ -21,7 +21,7 @@ script = ExtResource("1_irq5f")
 [node name="Player" parent="." instance=ExtResource("1_c0w1u")]
 position = Vector2(139, 288)
 script = ExtResource("2_5jvhr")
-SPEED = 100
+SPEED = 250
 ATTACK_DISTANCE = 50
 sword_swipe_scene = ExtResource("4_5xul6")
 
