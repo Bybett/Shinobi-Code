@@ -17,4 +17,4 @@ func _on_area_entered(area):
 		if remaining_life <= 0:
 			area.queue_free()
 			Globals.score += 50  # +50 for killing
-	print("lives: ", area.life, " | score: ", Globals.score)
+	print("Slime Health: ", area.life, " | score: ", Globals.score)

@@ -1,8 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://cj3qaeck1sbq2"]
+[gd_scene load_steps=8 format=3 uid="uid://cj3qaeck1sbq2"]
 
 [ext_resource type="PackedScene" uid="uid://blnfphlrjc7qm" path="res://Scenes/Player Scenes/player_scene.tscn" id="1_c0w1u"]
 [ext_resource type="Script" path="res://Scripts/main_script.gd" id="1_irq5f"]
-[ext_resource type="Script" path="res://Scripts/player_script.gd" id="2_5jvhr"]
 [ext_resource type="PackedScene" uid="uid://dstx040vqj326" path="res://Scenes/Player Scenes/sword_swipe.tscn" id="4_5xul6"]
 [ext_resource type="Script" path="res://Scripts/slime_spawner.gd" id="6_ltsga"]
 [ext_resource type="Script" path="res://Scripts/score_script.gd" id="6_p3554"]
@@ -19,7 +18,6 @@ script = ExtResource("1_irq5f")
 
 [node name="Player" parent="." instance=ExtResource("1_c0w1u")]
 position = Vector2(139, 288)
-script = ExtResource("2_5jvhr")
 SPEED = 250
 ATTACK_DISTANCE = 50
 sword_swipe_scene = ExtResource("4_5xul6")
