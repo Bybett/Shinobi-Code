@@ -55,6 +55,7 @@ func _on_area_entered(area):
 			sprite.modulate = Color(1, 0, 0, 1)
 			is_moving = false
 			return
+			
 		print("Hero Health: ", Globals.HERO_HEALTH, " | Score: ", Globals.score)
 	
 

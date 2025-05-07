@@ -11,11 +11,10 @@ func _process(_delta: float) -> void:
 	self.queue_free()
 
 func _on_area_entered(area):
-	if area.has_method("take_damage"):	
+	if area.has_method("take_damage"):
 		var remaining_life = area.take_damage(1)
 		Globals.score += 10  # +50 for hitting
 		if remaining_life <= 0:
 			area.queue_free()
 			Globals.score += 50  # +50 for killing
 		print("Slime Health: ", area.life, " | score: ", Globals.score)
-		#thing 2
