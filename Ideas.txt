@@ -1,0 +1,31 @@
+-- Player Mechanics --
+Different attack types
+  - Melee
+    + Daggers: Fast, Short Range, Low Damage, High Movement
+    + Sword: Jack of all Trades, Master of None
+    + Hammer/Greatword: Slow, High damage, Large Area of Attack
+  - Projectile
+    + Bows:
+      - Short Bow: Fast, Accurate, Multiple Projectiles, Movement
+      - Long Bow: Long-Medium Range, Slow, Pierce, High Damage
+    + Magic:
+      - Elemental: Fire, Water, Earth, Wind, etc
+      - Casting Slows Player
+      - Relies on Mana, Mana is From Kills
+
+Player Abilities:
+  - Absorb slimes for their power?
+
+-- Enemy Mechanics --
+Slime Types
+  - Green: Basic slime. Easy to kill. Not much loot.
+  - Red: Tougher than green, drops a little more loot.
+  - Blue: Resistant to magic (Shoots projectiles?)
+  - Brown: Tanky slime. High health and higher-than-average damage, but slow.
+  - Yellow: Fast bois
+  - Purple: Boss type. Stats are much higher than other slimes, but they spawn in fewer numbers.
+
+Slime Mechanics:
+  - When slimes collide, they combine into a more powerful entity.
+  - Slimes of the same type have their healths added, then that new value is used for the new entity.
+  - Slimes of different types have half of their stats combined.

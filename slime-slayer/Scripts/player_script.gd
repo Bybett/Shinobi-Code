@@ -2,15 +2,12 @@ extends Area2D
 
 @onready var sprite = $Sprite2D
 
-# Constants
 @export var SPEED: int
 @export var ATTACK_DISTANCE:int
-# Variables
 @export var direction: Vector2
+@export var sword_swipe_scene: PackedScene
 
 var is_moving = true
-
-@export var sword_swipe_scene: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
