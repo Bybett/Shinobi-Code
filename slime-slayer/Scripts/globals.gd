@@ -12,6 +12,8 @@ const MAX_ATTEMPTS = 10 # how man you can fit in map
 const PLAYER_SCENE = preload("res://Scenes/Player Scenes/player_scene.tscn")
 var PLAYER = PLAYER_SCENE.instantiate() #player node
 
+var ROUND = 0
+
 # Preload the Enemy scene
 const ENEMY_SCENE = preload("res://Scenes/enemy_scene.tscn")
 
