@@ -18,4 +18,4 @@ func _on_area_entered(area):
 			area.queue_free()
 			Globals.score += 50  # +50 for killing
 		print("Slime Health: ", area.life, " | score: ", Globals.score)
-		#thing 2
+		# Thing 3
