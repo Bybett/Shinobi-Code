@@ -1,4 +1,7 @@
-extends Node
+extends Node2D
+
+func _ready():
+	spawn_enemy(25)
 
 func spawn_enemy(ENEMY_COUNT):
 	randomize()
@@ -18,9 +21,9 @@ func spawn_enemy(ENEMY_COUNT):
 				var distance_to_player = enemy.position.distance_to(Globals.PLAYER.position)
 				if distance_to_player < Globals.MIN_DISTANCE:
 					valid_position = false
-					print("Invalid position for enemy ", i, " due to player at ", Globals.PLAYER.position, " | Distance: ", distance_to_player)
+					#print("Invalid position for enemy ", i, " due to player at ", Globals.PLAYER.position, " | Distance: ", distance_to_player)
 			else:
-				print("Warning: Player instance is invalid")
+				pass #print("Warning: Player instance is invalid")
 			
 			# Check distance to all entities, excluding player
 			for other_enemy in Globals.ENTITIES:
@@ -29,21 +32,18 @@ func spawn_enemy(ENEMY_COUNT):
 					if distance < Globals.MIN_DISTANCE:
 						valid_position = false
 						# Debug: Print which entity caused the invalid position
-						print("Invalid position for enemy ", i, " due to entity at ", other_enemy.position, " | Distance: ", distance)
+						#print("Invalid position for enemy ", i, " due to entity at ", other_enemy.position, " | Distance: ", distance)
 						break
 				else:
-					# Debug: Warn if an invalid entity is found
-					print("Warning: Invalid entity found in ENTITIES: ", other_enemy)
+					pass # Debug: Warn if an invalid entity is found
+					#print("Warning: Invalid entity found in ENTITIES: ", other_enemy)
 			
 			attempts += 1
 		if valid_position:
 			add_child(enemy)
 			Globals.ENTITIES.append(enemy)
-			print("Enemy ", i, " spawned at: ", enemy.position)
+			#print("Enemy ", i, " spawned at: ", enemy.position)
 		else:
-			print("Warning: Could not find valid position for enemy ", i)
+			#print("Warning: Could not find valid position for enemy ", i)
 			enemy.queue_free()
-	print("Spawned ", Globals.ENTITIES.size(), " enemies: ", Globals.ENTITIES)
-
-func _ready():
-	spawn_enemy(25)
+	#print("Spawned ", Globals.ENTITIES.size(), " enemies: ", Globals.ENTITIES)
