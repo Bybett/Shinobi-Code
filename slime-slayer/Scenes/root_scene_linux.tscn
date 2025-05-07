@@ -13,6 +13,7 @@ default_font = SubResource("SystemFont_2o5nb")
 default_font_size = 16
 
 [node name="Node2D" type="Node2D"]
+position = Vector2(2, 0)
 script = ExtResource("1_irq5f")
 
 [node name="Player" parent="." instance=ExtResource("1_c0w1u")]
