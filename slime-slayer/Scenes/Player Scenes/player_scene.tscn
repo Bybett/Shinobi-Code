@@ -7,7 +7,6 @@
 size = Vector2(128, 129)
 
 [node name="PlayerNode" type="Area2D"]
-position = Vector2(100, 100)
 script = ExtResource("1_nbutc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

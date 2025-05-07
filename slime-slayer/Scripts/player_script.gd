@@ -15,7 +15,9 @@ var is_moving = true
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#direction = Vector2.RIGHT
-	pass # Replace with function body.
+	#pass # Replace with function body.
+	global_position = Vector2(102, 100)
+	Globals.PLAYER = self
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
