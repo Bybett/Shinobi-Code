@@ -1,61 +1,79 @@
 extends CharacterBody2D
 
-@onready var sprite = $Sprite2D
+# Constants
+@export var speed: int = 250
+@export var attack_distance: int = 125
 
-@export var SPEED: int
-@export var ATTACK_DISTANCE:int
-@export var direction: Vector2
-@export var sword_swipe_scene: PackedScene
+# Variables
+var direction: Vector2 # Player's director of movement
 
-var is_moving = true
+#Bools
+@export var is_moving: bool = true
+var is_invulnerable: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#direction = Vector2.RIGHT
-	#pass # Replace with function body.
-	global_position = Vector2(102, 100)
-	Globals.PLAYER = self
+	Globals.PLAYER = self # Makes PLAYER node from Globals accessible in this script
+	global_position = Vector2(102, 100) # Set Player's position
+	$HitBox.body_entered.connect(_on_area_2d_body_entered) # Associates Hit Box with _on_area_2d... pre-built function
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	
+	# Movement function WASD of PLAYER controls
 	if is_moving:
 		if (Input.is_action_pressed("Up")):
-			position.y -= SPEED * delta
+			position.y -= speed * delta # distance = speed * time
 			direction = Vector2.UP
 		if (Input.is_action_pressed("Down")):
-			position.y += SPEED * delta
+			position.y += speed * delta
 			direction = Vector2.DOWN
 		if (Input.is_action_pressed("Left")):
-			position.x -= SPEED * delta
+			position.x -= speed * delta
 			direction = Vector2.LEFT
 		if (Input.is_action_pressed("Right")):
-			position.x += SPEED * delta
+			position.x += speed * delta
 			direction = Vector2.RIGHT
+			
+		#Sword Swipe Function Initialized with Controls 
 		if (Input.is_action_just_released("Space")):
-			if sword_swipe_scene:
-				var sword_swipe = sword_swipe_scene.instantiate()
-				sword_swipe.position = (direction * ATTACK_DISTANCE) * 2
-				if (direction == Vector2.UP):
+			if Globals.SWORD_SWIPE_SCENE:
+				var sword_swipe = Globals.SWORD_SWIPE_SCENE.instantiate()
+				sword_swipe.position = direction * attack_distance
+				
+				#Positions sword swipe based on what WASD is pressed
+				if (direction == Vector2.UP): 
 					sword_swipe.rotation_degrees = -90
 				elif (direction == Vector2.DOWN):
 					sword_swipe.rotation_degrees = 90
-				add_child(sword_swipe)
+				
+				add_child(sword_swipe) #Sword enters the scene
 			else:
-				print("No sword_swipe_scene")
+				print("sword_swipe_scene run failed")
 			
-			
-func _on_area_entered(area):
-	if area.has_method("give_damage"):
-		area.give_damage()
-		if Globals.HERO_HEALTH <= 0:
-			print("You DIED! - Total Score: ", Globals.score)
-			sprite.modulate = Color(1, 0, 0, 1)
-			is_moving = false
-			return
-			
-		print("Hero Health: ", Globals.HERO_HEALTH, " | Score: ", Globals.score)
+# If an ENEMY enters PLAYER's hitbox, runs take_damage()
+func _on_area_2d_body_entered(body: Node) -> void:
+	if body.is_in_group("enemies"):
+		take_damage(1)
+		print("HITBOX entered")
+
+# Deals damage to PLAYER
+func take_damage(amount: int) -> void:
 	
-
-
-func _on_timer_timeout() -> void:
-	pass # Replace with function body.
+	#If the PLAYER cannot be hurt don't take damage and exit function
+	if is_invulnerable:
+		return
+	
+	Globals.PLAYER_HEALTH -= amount #Subtracks PLAYER health
+	
+	# If PLAYER has no more health, GAME OVER
+	if Globals.PLAYER_HEALTH <= 0:
+		print("You DIED! - Total Score: ", Globals.SCORE)
+		Globals.PLAYER.modulate = Color(1, 0, 0, 1)  # Turn sprite red
+		is_moving = false 
+	else:
+		print("Player Health: ", Globals.PLAYER_HEALTH, " | Score: ", Globals.SCORE)
+	
+	is_invulnerable = true # PLAYER var for invulnerability is turned on
+	await get_tree().create_timer(1.0).timeout  # invulnerability lasts for 1 sec
+	is_invulnerable = false #After 1sec player no longer invulnerable

@@ -1,23 +1,24 @@
 extends Node
 
-var score: int = 0
+var SCORE: int = 0
+var ROUND: int = 0
+var PLAYER_HEALTH: int = 100
 
-const MIN_X = 00.0 #map x size
-const MAX_X = 500.0 #map x size
-const MIN_Y = 0.0 #map y size
-const MAX_Y = 500.0 #map y size
+#Map Dimensions
+const MIN_X: int = 00 # -x size
+const MAX_X: int = 500 # +x size
+const MIN_Y: int = 0 # -y size
+const MAX_Y: int = 500 # +y size
 
-const MAX_ATTEMPTS = 10 # how man you can fit in map
-
+#Grab Player node as PLAYER
 const PLAYER_SCENE = preload("res://Scenes/Player Scenes/player_scene.tscn")
-var PLAYER = PLAYER_SCENE.instantiate() #player node
+var PLAYER = PLAYER_SCENE.instantiate() 
 
-var ROUND = 0
+# Grab slime scene as SLIME_SCENE
+const SLIME_SCENE = preload("res://Scenes/slime_scene.tscn")
 
-# Preload the Enemy scene
-const ENEMY_SCENE = preload("res://Scenes/enemy_scene.tscn")
+# Grab sword swipe scene as SWORD_SWIPE_SCENE
+const SWORD_SWIPE_SCENE = preload("res://Scenes/Player Scenes/sword_swipe.tscn")
 
-var ENTITIES = [] # list of all interactable objects/entities
-const MIN_DISTANCE = 150.0 # distance from each enemy
-
-@export var HERO_HEALTH: int = 100
+# list of all interactable objects/entities
+var ENTITIES = [] 

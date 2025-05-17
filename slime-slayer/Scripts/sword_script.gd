@@ -4,24 +4,25 @@ extends Area2D
 func _ready() -> void:
 	self.monitoring
 	self.monitorable
+	
 	# Connect the body_entered signal to handle collisions with CharacterBody2D
 	body_entered.connect(_on_body_entered)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.1).timeout # adds timer between attacks so doesn't crash
 	self.queue_free()
-		
+
 func _on_body_entered(body: Node) -> void:
+	
+	#If sword hits something that can take damage, it deals dmg
 	if body.has_method("take_damage"):
 		var remaining_life = body.take_damage(1)
-		Globals.score += 10  # +10 for hitting
+		Globals.SCORE += 10  # +10 for hitting
+
+		#Killing/Destroying things code if their life=0
 		if remaining_life <= 0:
 			body.queue_free()
-			Globals.score += 50  # +50 for killing
-<<<<<<< HEAD
-		print("Slime Health: ", area.life, " | score: ", Globals.score)
-		# Thing 3
-=======
-		print("Slime Health: ", body.life, " | Score: ", Globals.score)
->>>>>>> 62fec3ceedf92d26292c371c0f5d733bca9a44b2
+			Globals.SCORE += 50  # +50 for killing
+		
+		print("Slime Health: ", body.life, " | Score: ", Globals.SCORE)
