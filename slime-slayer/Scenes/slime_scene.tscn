@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://bkt0v2v2afvxc"]
 
-[ext_resource type="Script" path="res://Scripts/slime_script.gd" id="1_au0x7"]
+[ext_resource type="Script" uid="uid://cs0plyy57osy8" path="res://Scripts/slime_script.gd" id="1_au0x7"]
 [ext_resource type="Texture2D" uid="uid://bhsq2hgmgm18m" path="res://icon.svg" id="2_0ljhj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mqbsp"]
-size = Vector2(128, 128)
+size = Vector2(120, 120)
 
 [node name="Slime" type="CharacterBody2D"]
 z_index = -1
@@ -15,10 +15,12 @@ platform_floor_layers = 4294967294
 script = ExtResource("1_au0x7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.1, 1.1)
+top_level = true
+scale = Vector2(0.4, 0.4)
 shape = SubResource("RectangleShape2D_mqbsp")
 one_way_collision = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 3.14, 1, 1)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("2_0ljhj")

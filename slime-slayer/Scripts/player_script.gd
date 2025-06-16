@@ -1,15 +1,12 @@
 extends CharacterBody2D
 
-# Constants
-@export var speed: int = 250
-@export var attack_distance: int = 125
+@export var speed: int = 250 ## Attack speed
+@export var attack_distance: int = 80 ## Distance the sword node will spawn
+@export var is_moving: bool = true ## .....is moving?????
 
-# Variables
-var direction: Vector2 # Player's director of movement
-
-#Bools
-@export var is_moving: bool = true
 var is_invulnerable: bool = false
+var direction: Vector2 = Vector2.RIGHT # Player's director of movement
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

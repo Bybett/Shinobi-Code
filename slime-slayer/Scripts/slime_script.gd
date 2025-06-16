@@ -1,18 +1,22 @@
 extends CharacterBody2D
 
 # Variables
-@export var speed: int = 35
-@export var life: int = 3
-@export var attack: int = 10
-@export var vision_range: int = 300  # Diameter of the vision box
+@export var speed: int = 35 ## Speed!!
+@export var life: int = 3 ## Life, duh
+@export var attack: int = 10 ## Attack damage
+@export var vision_range: int = 300  ## Diameter of the vision box
+
+## Its element. It will determine abilities and attributes
+## Accepted values: base, air, water, earth, fire
+@export var element: String = "base"
+@export var size: String = "small" ## Acceptable sizes: small, medium, large
 
 var random_direction: Vector2 = Vector2.ZERO # Applies random variance in direction
 var randomness_factor: float = 0.2  # Strength of randomness
-
-# If pursuing runs pursuing code
-var is_pursuing: bool = false
+var is_pursuing: bool = false # If pursuing runs pursuing code
 
 func _ready() -> void:
+	
 	set_random_direction()
 	add_to_group("enemies")
 
@@ -45,7 +49,6 @@ func _physics_process(_delta: float) -> void:
 		velocity = random_direction * speed
 		if randf() < 0.01:  # Change direction occasionally (1% chance per frame)
 			set_random_direction()
-
 	move_and_slide() # Built in function for characterbody2D that deals with movement
 
 #Grabs a random vector direction
