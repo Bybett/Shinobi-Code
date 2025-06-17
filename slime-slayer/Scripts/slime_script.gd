@@ -51,12 +51,6 @@ func set_random_direction() -> void:
 		randf_range(-1.0, 1.0)
 	).normalized()
 
-##when enemy touches player, knock back to enemy
-#func repulsion_foce() -> void:
-	#var target_direction = (Globals.PLAYER.position - position).normalized() #vector from SLIME to PLAYER 
-	#var repulsion_dir = -target_direction
-	#velocity = repulsion_dir * speed*3
-
 #Checks if PLAYER is within vision and if it needs to pursue
 func update_pursuit() -> void:
 	
