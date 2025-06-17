@@ -10,7 +10,7 @@ var MAX_X: int = ProjectSettings.get_setting("display/window/size/viewport_width
 var MIN_Y: int = 0 # -y size
 var MAX_Y: int = ProjectSettings.get_setting("display/window/size/viewport_height") # +y size
 
-# Base entity values
+# Base entity valuess
 const entity_size: int = 20
 
 #Grab Player node as PLAYER
