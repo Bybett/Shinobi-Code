@@ -10,6 +10,7 @@ var direction: Vector2 # Player's director of movement
 #Bools
 @export var is_moving: bool = true
 var is_invulnerable: bool = false
+var in_body: bool = false #is slime touching player?
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -55,8 +56,15 @@ func _process(delta: float) -> void:
 func _on_area_2d_body_entered(body: Node) -> void:
 	if body.is_in_group("enemies"):
 		take_damage(1)
+		in_body = true
 		print("HITBOX entered")
 
+# enemy leaves player body
+func _on_area_2d_body_exited(body: Node) -> void:
+	if body.is_in_group("enemies"):
+		in_body = false
+
+			
 # Deals damage to PLAYER
 func take_damage(amount: int) -> void:
 	
@@ -77,3 +85,7 @@ func take_damage(amount: int) -> void:
 	is_invulnerable = true # PLAYER var for invulnerability is turned on
 	await get_tree().create_timer(1.0).timeout  # invulnerability lasts for 1 sec
 	is_invulnerable = false #After 1sec player no longer invulnerable
+	
+	if (in_body):
+		take_damage(1)
+	
