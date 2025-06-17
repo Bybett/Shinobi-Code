@@ -5,6 +5,10 @@ extends CharacterBody2D
 @export var life: int = 3
 @export var attack: int = 10
 @export var vision_range: int = 300  ## Diameter of the vision box
+## Accepted: fire, water, earth, air
+@export var element: String = "base"
+##Accepted: small, medium, large
+@export var size: String = "small"
 
 var random_direction: Vector2 = Vector2.ZERO # Applies random variance in direction
 

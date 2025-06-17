@@ -4,7 +4,6 @@ extends Area2D
 func _ready() -> void:
 	self.monitoring
 	self.monitorable
-	
 	# Connect the body_entered signal to handle collisions with CharacterBody2D
 	body_entered.connect(_on_body_entered)
 

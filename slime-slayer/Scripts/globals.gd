@@ -6,10 +6,10 @@ var PLAYER_HEALTH: int = 100
 
 #Map Dimensions
 # TODO - Map Window code dimensions test if need to set parameters
-const MIN_X: int = 0 # -x size
-const MAX_X: int = 500 # +x size
-const MIN_Y: int = 0 # -y size
-const MAX_Y: int = 500 # +y size
+var MIN_X: int = 0 # -x size
+var MAX_X: int = ProjectSettings.get_setting("display/window/size/viewport_width") # +x size
+var MIN_Y: int = 0 # -y size
+var MAX_Y: int = ProjectSettings.get_setting("display/window/size/viewport_height") # +y size
 
 #Grab Player node as PLAYER
 const PLAYER_SCENE = preload("res://Scenes/Player Scenes/player_scene.tscn")

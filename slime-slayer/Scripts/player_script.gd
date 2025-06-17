@@ -2,15 +2,13 @@ extends CharacterBody2D
 
 # Constants
 @export var speed: int = 250
-@export var attack_distance: int = 125
-
-# Variables
-var direction: Vector2 # Player's director of movement
-
-#Bools
+@export var attack_distance: int = 80
 @export var is_moving: bool = true
+
 var is_invulnerable: bool = false
 var in_body: bool = false #is slime touching player?
+var direction: Vector2 = Vector2.RIGHT # Player's director of movement
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
