@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://cj3qaeck1sbq2"]
 
 [ext_resource type="PackedScene" uid="uid://blnfphlrjc7qm" path="res://Scenes/Player Scenes/player_scene.tscn" id="1_c0w1u"]
-[ext_resource type="Script" uid="uid://5igl1wbndv5i" path="res://Scripts/main_script.gd" id="1_irq5f"]
-[ext_resource type="Script" uid="uid://nj5eraq2lirs" path="res://Scripts/slime_spawner.gd" id="6_ltsga"]
-[ext_resource type="Script" uid="uid://b3sniaiuoibvr" path="res://Scripts/score_script.gd" id="6_p3554"]
+[ext_resource type="Script" path="res://Scripts/main_script.gd" id="1_irq5f"]
+[ext_resource type="Script" path="res://Scripts/slime_spawner.gd" id="6_ltsga"]
+[ext_resource type="Script" path="res://Scripts/score_script.gd" id="6_p3554"]
 
 [sub_resource type="SystemFont" id="SystemFont_2o5nb"]
 
